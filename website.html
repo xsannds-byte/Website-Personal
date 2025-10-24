@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background: linear-gradient(120deg, #e0e7ff 0%, #c7d2fe 100%);
+        }
+        .website-card {
+            background: #f8f6ff;
+            border-radius: 18px;
+            box-shadow: 0 4px 18px rgba(116,17,178,0.13);
+            padding: 32px 24px;
+            margin: 36px auto;
+            max-width: 500px;
+            text-align: center;
+        }
+        .website-card h2 {
+            color: #7411b2;
+            font-size: 2.2em;
+            margin-bottom: 18px;
+        }
+        .website-card img {
+            border-radius: 50%;
+            box-shadow: 0 2px 12px rgba(116,17,178,0.13);
+            margin-bottom: 18px;
+        }
+        .btn-visit {
+            display: inline-block;
+            background: #7411b2;
+            color: #fff;
+            font-weight: bold;
+            padding: 12px 32px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 1.1em;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            transition: background 0.2s, color 0.2s, transform 0.2s;
+            margin-top: 12px;
+            margin-bottom: 8px;
+            animation: pulse 1.5s infinite alternate;
+        }
+        .btn-visit:hover {
+            background: #fff;
+            color: #7411b2;
+            transform: scale(1.05);
+            border: 2px solid #7411b2;
+        }
+        .btn-back {
+            display: inline-block;
+            background: #7411b2;
+            color: #fff;
+            font-weight: bold;
+            padding: 12px 32px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 1.1em;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            transition: background 0.2s, color 0.2s, transform 0.2s;
+            margin-bottom: 18px;
+        }
+        .btn-back:hover {
+            background: #fff;
+            color: #7411b2;
+            transform: scale(1.05);
+            border: 2px solid #7411b2;
+        }
+        @keyframes pulse {
+            0% { box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+            100% { box-shadow: 0 8px 32px rgba(116,17,178,0.18); }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container" style="display: flex; align-items: center; gap: 18px; max-width: 900px; margin: 0 auto; padding: 0 24px;">
+            <img src="https://i.pinimg.com/736x/04/77/8c/04778c716de2d35978bf40c828329df9.jpg" alt="Logo Website" width="48" height="48" style="border-radius:50%; box-shadow:0 2px 8px rgba(116,17,178,0.13); margin-right:10px;">
+            <span class="nav-title" style="font-weight: bold; font-size: 1.2em; color: #7411b2; letter-spacing: 1px;">SZK Website</span>
+            <ul style="flex:1; justify-content: flex-end; display: flex; gap: 28px; margin: 0; padding: 0; list-style: none;">
+                <li><a href="home.html" style="color:#7411b2; font-weight:bold;">Home</a></li>
+            </ul>
+        </div>
+    </nav>
+    <main>
+        <div class="website-card fade-in">
+            <a href="home.html" class="btn-back">&#8592; Kembali ke Home</a>
+            <h2>Website Saya</h2>
+            <img src="https://i.pinimg.com/736x/04/77/8c/04778c716de2d35978bf40c828329df9.jpg" alt="Logo Website" width="80">
+            <h3 style="margin: 0 0 12px 0; font-size: 1.3em; letter-spacing: 1px; color:#7411b2;">Kunjungi Website Pribadi Saya</h3>
+            <a href="https://sandikurniawan.weebly.com/" target="_blank" class="btn-visit">sandikurniawan.weebly.com</a>
+            <p style="margin-top: 18px; font-size: 1em; opacity: 0.85; color:#555;">Website ini berisi karya, blog, dan info tentang saya.</p>
+        </div>
+    </main>
+</body>
+</html>

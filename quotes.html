@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quotes</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background: linear-gradient(120deg, #f8f7ff 0%, #e8eefc 100%);
+            font-family: 'Montserrat', Arial, sans-serif;
+        }
+        .quotes-card {
+            max-width: 780px;
+            margin: 48px auto;
+            background: #fff;
+            border-radius: 16px;
+            padding: 36px 28px;
+            box-shadow: 0 8px 32px rgba(116,17,178,0.07);
+            text-align: center;
+        }
+        .page-title { color: #6b21a8; font-size: 1.8em; margin: 0 0 12px 0; }
+        .subtitle { color:#555; margin-bottom:18px; }
+        .quote-box {
+            background: linear-gradient(90deg, rgba(116,17,178,0.06), rgba(56,189,248,0.04));
+            border-left: 6px solid rgba(116,17,178,0.18);
+            padding: 22px 20px;
+            border-radius: 10px;
+            margin: 18px auto;
+            max-width: 680px;
+            min-height: 120px;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+        }
+        .quote-text {
+            font-size: 1.2em;
+            color:#2d2d2d;
+            font-style: italic;
+            line-height: 1.5;
+            opacity:0;
+            transform: translateY(8px);
+            transition: opacity .6s ease, transform .6s ease;
+        }
+        .quote-text.visible { opacity:1; transform: translateY(0); }
+        .quote-author { margin-top:12px; color:#6b21a8; font-weight:700; }
+        .controls { margin-top:18px; display:flex; gap:12px; justify-content:center; }
+        .btn-back, .btn-next {
+            display:inline-block; background:#6b21a8; color:#fff; padding:10px 18px; border-radius:8px; text-decoration:none; font-weight:700; transition:transform .15s ease, background .15s ease;
+        }
+        .btn-back:hover, .btn-next:hover{ transform:scale(1.04); background:#fff; color:#6b21a8; border:2px solid #6b21a8; }
+        .dots { margin-top:14px; display:flex; gap:8px; justify-content:center; }
+        .dot { width:10px; height:10px; background:#ddd; border-radius:50%; transition:background .2s; }
+        .dot.active { background:#6b21a8; }
+        @media (max-width:700px){ .quotes-card { margin:24px 16px; padding:20px; } .quote-text{ font-size:1.05em; } }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container" style="display:flex; align-items:center; gap:12px; max-width:900px; margin:0 auto; padding:12px 24px;">
+            <img src="https://i.pinimg.com/1200x/40/84/cf/4084cf7359c5a30374870205f6a48bed.jpg" alt="Logo" width="44" height="44" style="border-radius:50%; box-shadow:0 2px 8px rgba(107,33,168,0.08);">
+            <span class="nav-title" style="font-weight:700; color:#6b21a8;">SZK Quotes</span>
+            <ul style="flex:1; display:flex; justify-content:flex-end; gap:18px; list-style:none; margin:0; padding:0;">
+                <li><a href="home.html" style="color:#6b21a8; font-weight:700; text-decoration:none;">Home</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <div class="quotes-card">
+            <h1 class="page-title">Quotes Favorit</h1>
+            <p class="subtitle">Kumpulan kutipan inspiratif yang sering saya pegang — klik next untuk berganti.</p>
+
+            <div class="quote-box">
+                <div>
+                    <div id="quoteText" class="quote-text">"Jangan pernah takut mencoba hal baru, karena semua hal besar berawal dari keberanian kecil."</div>
+                    <div id="quoteAuthor" class="quote-author">— Sandi Kurniawan Perdana</div>
+                </div>
+            </div>
+
+            <div class="controls">
+                <a href="home.html" class="btn-back">&#8592; Kembali ke Home</a>
+                <button id="nextBtn" class="btn-next">Next Quote</button>
+            </div>
+
+            <div class="dots" id="dots"></div>
+        </div>
+    </main>
+
+    <script>
+        const quotes = [
+            {text: "Jangan pernah takut mencoba hal baru, karena semua hal besar berawal dari keberanian kecil.", author: "Sandi Kurniawan Perdana"},
+            {text: "Kreativitas bukan hanya tentang ide, tapi tentang menyelesaikannya.", author: "Sandi K."},
+            {text: "Latihan setiap hari membuat hasilmu berbicara lebih keras daripada kata-kata.", author: "Unknown"},
+            {text: "Jadilah pembelajar seumur hidup — dunia terus berubah dan karya kita harus mengikuti.", author: "Sandi Kurniawan"}
+        ];
+        let idx = 0;
+        const quoteText = document.getElementById('quoteText');
+        const quoteAuthor = document.getElementById('quoteAuthor');
+        const nextBtn = document.getElementById('nextBtn');
+        const dots = document.getElementById('dots');
+
+        function renderDots(){
+            dots.innerHTML = '';
+            quotes.forEach((q,i)=>{
+                const d = document.createElement('div'); d.className='dot'+(i===idx?' active':'');
+                dots.appendChild(d);
+            });
+        }
+
+        function showQuote(i){
+            idx = (i+quotes.length)%quotes.length;
+            quoteText.classList.remove('visible');
+            setTimeout(()=>{
+                quoteText.textContent = '"'+quotes[idx].text+'"';
+                quoteAuthor.textContent = '— '+quotes[idx].author;
+                quoteText.classList.add('visible');
+                renderDots();
+            }, 250);
+        }
+
+        nextBtn.addEventListener('click', ()=> showQuote(idx+1));
+
+        // auto rotate every 6s
+        let auto = setInterval(()=> showQuote(idx+1), 6000);
+        // pause on hover
+        document.querySelector('.quote-box').addEventListener('mouseover', ()=> clearInterval(auto));
+        document.querySelector('.quote-box').addEventListener('mouseout', ()=> auto = setInterval(()=> showQuote(idx+1), 6000));
+
+        // init
+        showQuote(0);
+    </script>
+</body>
+</html>

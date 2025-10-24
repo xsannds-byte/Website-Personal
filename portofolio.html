@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background: linear-gradient(120deg, #f8fafc 0%, #ffe082 100%);
+        }
+        .portfolio-card {
+            background: #fffbe6;
+            border-radius: 18px;
+            box-shadow: 0 4px 18px rgba(255,224,130,0.13);
+            padding: 32px 24px;
+            margin: 36px auto;
+            max-width: 700px;
+            text-align: center;
+        }
+        .portfolio-card h2 {
+            color: #e6b800;
+            font-size: 2.2em;
+            margin-bottom: 18px;
+        }
+        .portfolio-videos {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 24px;
+            justify-content: center;
+            margin-bottom: 18px;
+        }
+        .portfolio-videos video {
+            border-radius: 14px;
+            box-shadow: 0 2px 12px rgba(255,224,130,0.13);
+            transition: transform 0.3s, box-shadow 0.3s;
+            width: 260px;
+            height: 150px;
+        }
+        .portfolio-videos video:hover {
+            transform: scale(1.07);
+            box-shadow: 0 8px 32px rgba(255,224,130,0.18);
+        }
+        .btn-back {
+            display: inline-block;
+            background: #e6b800;
+            color: #fff;
+            font-weight: bold;
+            padding: 12px 32px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 1.1em;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            transition: background 0.2s, color 0.2s, transform 0.2s;
+            margin-bottom: 18px;
+        }
+        .btn-back:hover {
+            background: #fff;
+            color: #e6b800;
+            transform: scale(1.05);
+            border: 2px solid #e6b800;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container" style="display: flex; align-items: center; gap: 18px; max-width: 900px; margin: 0 auto; padding: 0 24px;">
+            <img src="https://i.pinimg.com/1200x/40/84/cf/4084cf7359c5a30374870205f6a48bed.jpg" alt="Logo" width="48" height="48" style="border-radius:50%; box-shadow:0 2px 8px rgba(255,224,130,0.13); margin-right:10px;">
+            <span class="nav-title" style="font-weight: bold; font-size: 1.2em; color: #e6b800; letter-spacing: 1px;">SZK Portofolio</span>
+            <ul style="flex:1; justify-content: flex-end; display: flex; gap: 28px; margin: 0; padding: 0; list-style: none;">
+                <li><a href="home.html" style="color:#e6b800; font-weight:bold;">Home</a></li>
+            </ul>
+        </div>
+    </nav>
+    <main>
+        <div class="portfolio-card fade-in">
+            <a href="home.html" class="btn-back">&#8592; Kembali ke Home</a>
+            <h2>Portofolio</h2>
+            <div class="portfolio-videos">
+                <div>
+                    <strong>EDITAN GABUT 1:</strong><br>
+                    <video controls>
+                        <source src="https://drive.google.com/uc?export=download&id=1fnEOue7AX40jRi_04U6hqGk9Ya3udf_C" type="video/mp4">
+                    </video>
+                </div>
+                <div>
+                    <strong>EDITAN GABUT 2:</strong><br>
+                    <video controls>
+                        <source src="https://drive.google.com/uc?export=download&id=1fp4FuKgfMbgStzWqGbw5yrwmntlUFgwL" type="video/mp4">
+                    </video>
+                </div>
+                <div>
+                    <strong>EDITAN GABUT 3:</strong><br>
+                    <video controls>
+                        <source src="https://drive.google.com/uc?export=download&id=1sQb1efNbHTa4bqWt33NNlvKErSBpATeD" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+            <h3 style="color:#e6b800;">Chill</h3>
+            <video width="320" height="180" controls autoplay muted>
+                <source src="https://motionbgs.com/media/8299/steve-minecraft.960x540.mp4" type="video/mp4">
+            </video>
+        </div>
+    </main>
+</body>
+</html>

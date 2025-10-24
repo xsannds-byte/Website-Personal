@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+    body {
+        font-family: 'Montserrat', Arial, sans-serif;
+        background: linear-gradient(120deg, #f0f8ff 0%, #e0e7ff 100%);
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+    }
+    nav {
+        width: 100%;
+        padding: 12px 0;
+        position: sticky;
+        top: 0;
+        z-index: 99;
+        /* modern animated gradient */
+        background: linear-gradient(90deg, #6d28d9 0%, #06b6d4 100%);
+        background-size: 200% 100%;
+        animation: navGradient 8s linear infinite;
+        box-shadow: 0 8px 30px rgba(15,23,42,0.10);
+        margin-bottom: 12px;
+        border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    @keyframes navGradient {
+        0% { background-position: 0% 0%; }
+        50% { background-position: 100% 0%; }
+        100% { background-position: 0% 0%; }
+    }
+    nav .nav-container {
+        max-width: 1100px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 28px;
+        gap: 18px;
+    }
+    nav .nav-title {
+        font-weight: 700;
+        font-size: 1.05em;
+        color: rgba(255,255,255,0.98);
+        letter-spacing: 0.6px;
+        display:flex; align-items:center; gap:10px;
+    }
+    nav ul {
+        list-style: none;
+        display: flex;
+        gap: 22px;
+        margin: 0;
+        padding: 0;
+        flex: 1;
+        justify-content: flex-end;
+        align-items: center;
+    }
+    nav ul li a {
+        color: rgba(255,255,255,0.95);
+        font-weight: 600;
+        text-decoration: none;
+        transition: color 0.22s ease;
+        font-size: 0.98em;
+        position: relative;
+        padding: 6px 0;
+    }
+    nav ul li a::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: -6px;
+        width: 0;
+        height: 3px;
+        background: rgba(255,255,255,0.22);
+        border-radius: 3px;
+        transition: width .28s ease;
+    }
+    nav ul li a:hover {
+        color: #fff;
+    }
+    nav ul li a:hover::after {
+        width: 100%;
+    }
+    header {
+        background: linear-gradient(90deg, #7411b2 0%, #4a90e2 100%);
+        color: #fff;
+        padding: 40px 0 28px 0;
+        text-align: center;
+        box-shadow: 0 4px 24px rgba(74,144,226,0.18);
+        border-bottom-left-radius: 30px;
+        border-bottom-right-radius: 30px;
+        animation: fadeInDown 1.2s cubic-bezier(.68,-0.55,.27,1.55);
+    }
+    @keyframes fadeInDown {
+        0% { opacity: 0; transform: translateY(-40px); }
+        100% { opacity: 1; transform: translateY(0); }
+    }
+    header h1 {
+        font-size: 2.7em;
+        font-weight: 700;
+        letter-spacing: 2.5px;
+        margin-bottom: 10px;
+        text-shadow: 2px 2px 12px rgba(0,0,0,0.13);
+        font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+        transition: color 0.3s;
+    }
+    header h1:hover {
+        color: #ffe082;
+        cursor: pointer;
+    }
+    header p {
+        font-size: 1.2em;
+        font-style: italic;
+        opacity: 0.92;
+        margin-top: 0;
+        margin-bottom: 0;
+        letter-spacing: 1px;
+    }
+    section {
+        margin: 36px auto;
+        max-width: 650px;
+        background: #fff;
+        padding: 28px 24px 24px 24px;
+        border-radius: 16px;
+        box-shadow: 0 4px 18px rgba(0,0,0,0.10);
+        text-align: center;
+        transition: box-shadow 0.3s, transform 0.3s;
+        animation: fadeInUp 1.2s cubic-bezier(.68,-0.55,.27,1.55);
+    }
+    section:hover {
+        box-shadow: 0 8px 32px rgba(74,144,226,0.18);
+        transform: translateY(-4px) scale(1.01);
+    }
+    @keyframes fadeInUp {
+        0% { opacity: 0; transform: translateY(40px); }
+        100% { opacity: 1; transform: translateY(0); }
+    }
+    section ul {
+        text-align: left;
+        display: inline-block;
+        margin: 0 auto 20px auto;
+        padding-left: 0;
+    }
+    section ul li {
+        margin-bottom: 8px;
+        font-size: 1.08em;
+        transition: color 0.2s;
+    }
+    section ul li:hover {
+        color: #4a90e2;
+    }
+    section img {
+        border-radius: 50%;
+        display: block;
+        margin: 0 auto 20px auto;
+        box-shadow: 0 2px 12px rgba(74,144,226,0.13);
+        transition: transform 0.3s, box-shadow 0.3s;
+    }
+    section img:hover {
+        transform: scale(1.07) rotate(-2deg);
+        box-shadow: 0 6px 24px rgba(74,144,226,0.22);
+    }
+    a, a:visited {
+        color: #4a90e2;
+        text-decoration: none;
+        transition: color 0.2s;
+    }
+    a:hover {
+        color: #7411b2;
+        text-decoration: underline;
+    }
+    .btn-link {
+        display: inline-block;
+        background: #fff;
+        color: #4a90e2;
+        font-weight: bold;
+        padding: 12px 32px;
+        border-radius: 8px;
+        text-decoration: none;
+        font-size: 1.1em;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        transition: background 0.2s, color 0.2s, transform 0.2s;
+        margin-top: 8px;
+        margin-bottom: 8px;
+    }
+    .btn-link:hover {
+        background: #4a90e2;
+        color: #fff;
+        transform: scale(1.05);
+    }
+    video {
+        border-radius: 12px;
+        box-shadow: 0 2px 12px rgba(74,144,226,0.13);
+        margin-bottom: 12px;
+        transition: box-shadow 0.3s, transform 0.3s;
+    }
+    video:hover {
+        box-shadow: 0 6px 24px rgba(74,144,226,0.22);
+        transform: scale(1.03);
+    }
+    @media (max-width: 700px) {
+        nav .nav-container {
+            flex-direction: column;
+            gap: 12px;
+            padding: 0 8vw;
+        }
+        nav ul {
+            gap: 12px;
+        }
+        section {
+            max-width: 98vw;
+            padding: 16px 4vw 16px 4vw;
+        }
+        header h1 {
+            font-size: 1.5em;
+        }
+        video {
+            width: 98vw;
+            height: auto;
+        }
+    }
+    @keyframes pulse {
+        0% { box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+        100% { box-shadow: 0 8px 32px rgba(74,144,226,0.18); }
+    }
+</style>
+<body>
+    <!-- Navbar Start -->
+    <nav style="box-shadow: 0 8px 30px rgba(15,23,42,0.10); margin-bottom: 12px;">
+        <div class="nav-container" style="display: flex; align-items: center; gap: 18px;">
+            <img src="https://i.pinimg.com/1200x/40/84/cf/4084cf7359c5a30374870205f6a48bed.jpg" alt="Logo" width="48" height="48" style="border-radius:50%; box-shadow:0 2px 8px rgba(0,0,0,0.12); margin-right:10px; border:2px solid rgba(255,255,255,0.08);">
+            <span class="nav-title" style="font-weight: bold; font-size: 1.2em; color: #fff; letter-spacing: 1px;">SZK Website</span>
+            <ul style="flex:1; justify-content: flex-end; display: flex; gap: 28px; margin: 0; padding: 0; list-style: none;">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="biodata.html">Biodata</a></li>
+                <li><a href="portofolio.html">Portofolio</a></li>
+                <li><a href="hobi.html">Hobi & Keahlian</a></li>
+                <li><a href="website.html">Website</a></li>
+                <li><a href="testimoni.html">Testimoni</a></li>
+                <li><a href="quotes.html">Quotes</a></li>
+                <li><a href="kontak.html">Kontak</a></li>
+            </ul>
+        </div>
+    </nav>
+    <!-- Navbar End -->
+    <main>
+    <section class="fade-in" style="min-height:70vh; display:flex; flex-direction:column; justify-content:center; align-items:center; background: linear-gradient(120deg, #f8fafc 0%, #e0e7ff 100%); box-shadow: 0 4px 18px rgba(74,144,226,0.10); border-radius: 24px; margin: 36px auto; max-width: 700px; padding: 38px;">
+        <h1 style="font-size:2.7em; color:#7c3aed; margin-bottom:18px; text-shadow:2px 2px 12px rgba(74,144,226,0.10);">Selamat Datang di Website Saya!</h1>
+        <p style="font-size:1.3em; color:#38bdf8; max-width:500px; margin-bottom:24px;">Terima kasih sudah berkunjung. Website ini berisi biodata, portofolio, hobi, karya, testimoni, quotes, dan kontak saya.<br>Silakan pilih menu di atas untuk melihat lebih detail!</p>
+        <img src="https://i.pinimg.com/1200x/40/84/cf/4084cf7359c5a30374870205f6a48bed.jpg" alt="Foto Profil" width="140" style="border-radius:50%; box-shadow:0 4px 18px rgba(74,144,226,0.10); margin-bottom:18px;">
+        <a href="portofolio.html" class="btn-link" style="margin-top:12px; animation:pulse 1.5s infinite alternate; background:#7c3aed; color:#fff;">Lihat Portofolio</a>
+    </section>
+</main>
+<style>
+@keyframes pulse {
+    0% { box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+    100% { box-shadow: 0 8px 32px rgba(74,144,226,0.18); }
+}
+</style>
+</body>
+</html>
+<footer style="text-align:center; margin:30px 0; color:#888;">
+    &copy; 2025 SZK
